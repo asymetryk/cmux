@@ -1,5 +1,14 @@
 # cmux agent notes
 
+## Local feature operating charter
+
+Follow the global `~/.agent_charter/MANIFESTO.md` and its charter modules for process.
+Repo-specific setup, approvals, remote validation, and work-package links are in
+`.agent_charter/CONFIG.md`. The global charter and that approved configuration
+control lifecycle and commit authorization; these notes control cmux product,
+build, package, and localization conventions. WP 750 has an approved waiver to
+reuse native cmux menu/settings styling without generated mockups.
+
 ## Setup
 
 `./scripts/setup.sh` initializes submodules, builds GhosttyKit, and installs the pbxproj normalization pre-commit hook.

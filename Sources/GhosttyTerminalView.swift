@@ -7318,6 +7318,7 @@ class GhosttyNSView: NSView, NSUserInterfaceValidations {
             item.target = self
             addTranslateSelectionMenuItem(to: menu, surface: surface)
         }
+        addReadAloudMenuItems(to: menu, surface: surface)
         let pasteItem = menu.addItem(
             withTitle: String(localized: "terminalContextMenu.paste", defaultValue: "Paste"),
             action: #selector(paste(_:)),

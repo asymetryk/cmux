@@ -773,6 +773,7 @@ C0DE71B10000000000000001 /* AppDelegate+AgentChatNotifications.swift in Sources 
 		C0DE31390000000000000111 /* CMUXOpenHTMLFocusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0DE31390000000000000112 /* CMUXOpenHTMLFocusTests.swift */; };
 		E3B7A30000000000000000F3 /* CmuxPanes in Frameworks */ = {isa = PBXBuildFile; productRef = E3B7A30000000000000000F2 /* CmuxPanes */; };
 		A5C0DE0000000000000000A3 /* CMUXProjectModel in Frameworks */ = {isa = PBXBuildFile; productRef = A5C0DE0000000000000000A2 /* CMUXProjectModel */; };
+		B750A3000000000000000002 /* CmuxReadAloud in Frameworks */ = {isa = PBXBuildFile; productRef = B750A3000000000000000003 /* CmuxReadAloud */; };
 		CC0DE10000000000000000A3 /* CmuxRemoteDaemon in Frameworks */ = {isa = PBXBuildFile; productRef = CC0DE10000000000000000A2 /* CmuxRemoteDaemon */; };
 		CC0DE30000000000000000A3 /* CmuxRemoteSession in Frameworks */ = {isa = PBXBuildFile; productRef = CC0DE30000000000000000A2 /* CmuxRemoteSession */; };
 		CC0DE20000000000000000A3 /* CmuxRemoteWorkspace in Frameworks */ = {isa = PBXBuildFile; productRef = CC0DE20000000000000000A2 /* CmuxRemoteWorkspace */; };
@@ -1143,6 +1144,7 @@ C0DE71B10000000000000001 /* AppDelegate+AgentChatNotifications.swift in Sources 
 		D3571000A1B2C3D4E5F60718 /* GhosttyNSView+IMEComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3571001A1B2C3D4E5F60718 /* GhosttyNSView+IMEComposition.swift */; };
 		D7AB00000000000000000005 /* GhosttyNSView+MoveTabToNewWorkspace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AB00000000000000000006 /* GhosttyNSView+MoveTabToNewWorkspace.swift */; };
 		C7261F030000000000000001 /* GhosttyNSView+PointerFocusActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7261F030000000000000002 /* GhosttyNSView+PointerFocusActivation.swift */; };
+		B750A2000000000000000001 /* GhosttyNSView+ReadAloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A2000000000000000002 /* GhosttyNSView+ReadAloud.swift */; };
 		265FFB2D782433ED46B87F32 /* GhosttyNSView+RemoteReconnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47895BD8BBB2418438E708F5 /* GhosttyNSView+RemoteReconnect.swift */; };
 		C75100010000000000000001 /* GhosttyNSView+SelectionTranslation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75100010000000000000002 /* GhosttyNSView+SelectionTranslation.swift */; };
 		EC010E01 /* GhosttyNSView+TerminalCustomUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC010E02 /* GhosttyNSView+TerminalCustomUpload.swift */; };
@@ -1547,6 +1549,7 @@ C0DE71B10000000000000001 /* AppDelegate+AgentChatNotifications.swift in Sources 
 		A64610010000000000000001 /* QuitConfirmationAlertPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64610010000000000000002 /* QuitConfirmationAlertPresenter.swift */; };
 		A64610020000000000000001 /* QuitConfirmationAlertPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64610020000000000000002 /* QuitConfirmationAlertPresenterTests.swift */; };
 		A500RG01 /* ReactGrab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A500RG00 /* ReactGrab.swift */; };
+		B750A1000000000000000001 /* ReadAloudPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B750A1000000000000000002 /* ReadAloudPresentation.swift */; };
 		A6D1F0000000000000000002 /* ReleasingWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1F0000000000000000001 /* ReleasingWindowController.swift */; };
 		A6D1F0400000000000000002 /* ReleasingWindowControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1F0400000000000000001 /* ReleasingWindowControllerTests.swift */; };
 		EE30D5000000000000000002 /* RemoteDaemonStrings+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE30D5000000000000000001 /* RemoteDaemonStrings+App.swift */; };
@@ -3743,6 +3746,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 		D3571001A1B2C3D4E5F60718 /* GhosttyNSView+IMEComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+IMEComposition.swift"; sourceTree = "<group>"; };
 		D7AB00000000000000000006 /* GhosttyNSView+MoveTabToNewWorkspace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+MoveTabToNewWorkspace.swift"; sourceTree = "<group>"; };
 		C7261F030000000000000002 /* GhosttyNSView+PointerFocusActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+PointerFocusActivation.swift"; sourceTree = "<group>"; };
+		B750A2000000000000000002 /* GhosttyNSView+ReadAloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+ReadAloud.swift"; sourceTree = "<group>"; };
 		47895BD8BBB2418438E708F5 /* GhosttyNSView+RemoteReconnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+RemoteReconnect.swift"; sourceTree = "<group>"; };
 		C75100010000000000000002 /* GhosttyNSView+SelectionTranslation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+SelectionTranslation.swift"; sourceTree = "<group>"; };
 		EC010E02 /* GhosttyNSView+TerminalCustomUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GhosttyNSView+TerminalCustomUpload.swift"; sourceTree = "<group>"; };
@@ -4142,6 +4146,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 		A64610010000000000000002 /* QuitConfirmationAlertPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitConfirmationAlertPresenter.swift; sourceTree = "<group>"; };
 		A64610020000000000000002 /* QuitConfirmationAlertPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitConfirmationAlertPresenterTests.swift; sourceTree = "<group>"; };
 		A500RG00 /* ReactGrab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Panels/ReactGrab.swift; sourceTree = "<group>"; };
+		B750A1000000000000000002 /* ReadAloudPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadAloudPresentation.swift; sourceTree = "<group>"; };
 		A6D1F0000000000000000001 /* ReleasingWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App/ReleasingWindowController.swift; sourceTree = "<group>"; };
 		A6D1F0400000000000000001 /* ReleasingWindowControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReleasingWindowControllerTests.swift; sourceTree = "<group>"; };
 		EE30D5000000000000000001 /* RemoteDaemonStrings+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RemoteDaemonStrings+App.swift"; sourceTree = "<group>"; };
@@ -5220,6 +5225,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				E3B7A30000000000000000D3 /* CmuxNotifications in Frameworks */,
 				E3B7A30000000000000000F3 /* CmuxPanes in Frameworks */,
 				A5C0DE0000000000000000A3 /* CMUXProjectModel in Frameworks */,
+				B750A3000000000000000002 /* CmuxReadAloud in Frameworks */,
 				CC0DE10000000000000000A3 /* CmuxRemoteDaemon in Frameworks */,
 				CC0DE30000000000000000A3 /* CmuxRemoteSession in Frameworks */,
 				CC0DE20000000000000000A3 /* CmuxRemoteWorkspace in Frameworks */,
@@ -6209,6 +6215,8 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				C7261F030000000000000002 /* GhosttyNSView+PointerFocusActivation.swift */,
 				47895BD8BBB2418438E708F5 /* GhosttyNSView+RemoteReconnect.swift */,
 				C75100010000000000000002 /* GhosttyNSView+SelectionTranslation.swift */,
+				B750A1000000000000000002 /* ReadAloudPresentation.swift */,
+				B750A2000000000000000002 /* GhosttyNSView+ReadAloud.swift */,
 				D0B1000BA1B2C3D4E5F60001 /* GhosttyTerminalViewSupport.swift */,
 				D0B10013A1B2C3D4E5F60001 /* GhosttyApp+SurfaceConfigurationReload.swift */,
 				D3571001A1B2C3D4E5F60718 /* GhosttyNSView+IMEComposition.swift */,
@@ -8000,6 +8008,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				CD0CFE5200000000CD0CFE52 /* CmuxSettings */,
 				CFF12E0000000000000000A2 /* CmuxTestSupport */,
 				CD0CFE5500000000CD0CFE55 /* CmuxSettingsUI */,
+				B750A3000000000000000003 /* CmuxReadAloud */,
 				CDFEED0200000000CDFEED02 /* CmuxUpdater */,
 				CDFEED0500000000CDFEED05 /* CmuxUpdaterUI */,
 				CF00F00000000000000000A2 /* CmuxFoundation */,
@@ -8197,6 +8206,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				CD0CFE5100000000CD0CFE51 /* XCLocalSwiftPackageReference "CmuxSettings" */,
 				CFF12E0000000000000000A1 /* XCLocalSwiftPackageReference "CmuxTestSupport" */,
 				CD0CFE5400000000CD0CFE54 /* XCLocalSwiftPackageReference "CmuxSettingsUI" */,
+				B750A3000000000000000001 /* XCLocalSwiftPackageReference "CmuxReadAloud" */,
 				CDFEED0100000000CDFEED01 /* XCLocalSwiftPackageReference "CmuxUpdater" */,
 				CDFEED0400000000CDFEED04 /* XCLocalSwiftPackageReference "CmuxUpdaterUI" */,
 				CF00F00000000000000000A1 /* XCLocalSwiftPackageReference "CmuxFoundation" */,
@@ -9041,6 +9051,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				D3571000A1B2C3D4E5F60718 /* GhosttyNSView+IMEComposition.swift in Sources */,
 				D7AB00000000000000000005 /* GhosttyNSView+MoveTabToNewWorkspace.swift in Sources */,
 				C7261F030000000000000001 /* GhosttyNSView+PointerFocusActivation.swift in Sources */,
+				B750A2000000000000000001 /* GhosttyNSView+ReadAloud.swift in Sources */,
 				265FFB2D782433ED46B87F32 /* GhosttyNSView+RemoteReconnect.swift in Sources */,
 				C75100010000000000000001 /* GhosttyNSView+SelectionTranslation.swift in Sources */,
 				EC010E01 /* GhosttyNSView+TerminalCustomUpload.swift in Sources */,
@@ -9319,6 +9330,7 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 				C0DE86520000000000000115 /* QuickLookPreviewView.swift in Sources */,
 					A64610010000000000000001 /* QuitConfirmationAlertPresenter.swift in Sources */,
 				A500RG01 /* ReactGrab.swift in Sources */,
+				B750A1000000000000000001 /* ReadAloudPresentation.swift in Sources */,
 				A6D1F0000000000000000002 /* ReleasingWindowController.swift in Sources */,
 				EE30D5000000000000000002 /* RemoteDaemonStrings+App.swift in Sources */,
 				791102010000000000000001 /* RemoteDisconnectPreparationService.swift in Sources */,
@@ -11493,6 +11505,10 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/macOS/CmuxSettingsUI;
 		};
+		B750A3000000000000000001 /* XCLocalSwiftPackageReference "CmuxReadAloud" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/macOS/CmuxReadAloud;
+		};
 		CDFEED0100000000CDFEED01 /* XCLocalSwiftPackageReference "CmuxUpdater" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/macOS/CmuxUpdater;
@@ -11746,6 +11762,11 @@ C0DE71B10000000000000002 /* AppDelegate+AgentChatNotifications.swift */ = {isa =
 			isa = XCSwiftPackageProductDependency;
 			package = CD0CFE5400000000CD0CFE54 /* XCLocalSwiftPackageReference "CmuxSettingsUI" */;
 			productName = CmuxSettingsUI;
+		};
+		B750A3000000000000000003 /* CmuxReadAloud */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B750A3000000000000000001 /* XCLocalSwiftPackageReference "CmuxReadAloud" */;
+			productName = CmuxReadAloud;
 		};
 		CDFEED0200000000CDFEED02 /* CmuxUpdater */ = {
 			isa = XCSwiftPackageProductDependency;
