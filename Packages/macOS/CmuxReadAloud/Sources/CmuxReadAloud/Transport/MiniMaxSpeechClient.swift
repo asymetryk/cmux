@@ -24,13 +24,14 @@ public actor MiniMaxSpeechClient: ReadAloudSynthesizing {
 
     /// Reads the full selection through sequential, bounded provider requests.
     ///
-    /// Empty or whitespace-only selections return without making a request.
-    /// Paragraph and sentence boundaries are preferred when splitting long text;
-    /// no text is silently truncated. The sink receives complete PCM samples and
+    /// Empty, whitespace-only, or table-rule-only selections make no request.
+    /// Rendered table borders become row-by-row speech before paragraph and
+    /// sentence-aware chunking; no cell text is silently truncated.
+    /// The sink receives complete PCM samples and
     /// is awaited before reading more network bytes. It must cooperate with task
     /// cancellation; network cancellation does not depend on sink cooperation.
     /// - Parameters:
-    ///   - text: Selected text to transmit to MiniMax.
+    ///   - text: Selected text; table layout is removed locally before transmission.
     ///   - configuration: A supported MiniMax model, nonempty voice ID, and speed in 0.5...2.
     ///   - apiKey: A nonempty ASCII bearer credential without whitespace or controls.
     ///   - audioSink: A backpressured consumer, called sequentially with PCM data.
@@ -42,6 +43,7 @@ public actor MiniMaxSpeechClient: ReadAloudSynthesizing {
         audioSink: @escaping @Sendable (Data) async throws -> Void
     ) async throws {
         try Task.checkCancellation()
+        let text = try ReadAloudTableText.prepare(text)
         guard text.contains(where: { !$0.isWhitespace }) else { return }
         try validate(configuration: configuration, apiKey: apiKey)
         var chunks = ReadAloudTextChunks(text: text)
