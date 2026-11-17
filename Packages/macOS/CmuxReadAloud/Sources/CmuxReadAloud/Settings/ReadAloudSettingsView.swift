@@ -7,6 +7,8 @@ import SwiftUI
 @MainActor
 public struct ReadAloudSettingsView: View {
     @Bindable private var model: ReadAloudSettingsModel
+    @State private var voiceSelection: ReadAloudVoiceSelection = .custom
+    @State private var customVoiceID = ""
 
     /// Creates a settings surface backed by the app-owned Read Aloud settings model.
     /// - Parameter model: The observable state sharing preferences with the speech coordinator.
@@ -44,7 +46,7 @@ public struct ReadAloudSettingsView: View {
                     }
                     Spacer()
                     Button(String(localized: "action.reload", defaultValue: "Reload Settings", table: "ReadAloudSettings", bundle: .module)) {
-                        Task { await model.perform(.load) }
+                        Task { await loadSettings() }
                     }
                     .disabled(model.isBusy)
                 }
@@ -52,7 +54,7 @@ public struct ReadAloudSettingsView: View {
             .padding(20)
         }
         .frame(minWidth: 480, idealWidth: 560, minHeight: 620)
-        .task { await model.perform(.load) }
+        .task { await loadSettings() }
         .onDisappear { model.apiKeyDraft = "" }
     }
 
@@ -67,13 +69,32 @@ public struct ReadAloudSettingsView: View {
                 }
                 .accessibilityIdentifier("ReadAloudModel")
 
-                TextField(String(localized: "voice.label", defaultValue: "Voice ID", table: "ReadAloudSettings", bundle: .module), text: $model.configuration.voiceID)
-                    .textFieldStyle(.roundedBorder)
-                    .autocorrectionDisabled()
-                    .accessibilityIdentifier("ReadAloudVoiceID")
-                Text(String(localized: "voice.help", defaultValue: "Use a MiniMax voice ID, such as English_expressive_narrator, or your custom voice ID.", table: "ReadAloudSettings", bundle: .module))
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
+                Picker(String(localized: "voice.pickerLabel", defaultValue: "Voice", table: "ReadAloudSettings", bundle: .module), selection: $voiceSelection) {
+                    Section(String(localized: "voice.systemSection", defaultValue: "System voices", table: "ReadAloudSettings", bundle: .module)) {
+                        ForEach(ReadAloudVoiceCatalog.options) { option in
+                            Text(option.localizedName)
+                                .tag(ReadAloudVoiceSelection.preset(option.id))
+                        }
+                    }
+                    Section {
+                        Text(String(localized: "voice.custom", defaultValue: "Custom voice ID", table: "ReadAloudSettings", bundle: .module))
+                            .tag(ReadAloudVoiceSelection.custom)
+                    }
+                }
+                .onChange(of: voiceSelection) { _, selection in
+                    selectVoice(selection)
+                }
+                .accessibilityIdentifier("ReadAloudVoice")
+
+                if voiceSelection == .custom {
+                    TextField(String(localized: "voice.label", defaultValue: "Voice ID", table: "ReadAloudSettings", bundle: .module), text: customVoiceIDBinding)
+                        .textFieldStyle(.roundedBorder)
+                        .autocorrectionDisabled()
+                        .accessibilityIdentifier("ReadAloudVoiceID")
+                    Text(String(localized: "voice.customHelp", defaultValue: "Enter a MiniMax system, cloned, or other custom voice ID.", table: "ReadAloudSettings", bundle: .module))
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
 
                 HStack {
                     Slider(value: $model.configuration.speed, in: 0.5...2, step: 0.1) {
@@ -84,6 +105,9 @@ public struct ReadAloudSettingsView: View {
                         .monospacedDigit()
                         .frame(minWidth: 44, alignment: .trailing)
                 }
+                Text(String(localized: "speed.playbackHelp", defaultValue: "Sets the starting playback speed for new readings. Use the player to change speed while listening; saved audio stays at normal speed.", table: "ReadAloudSettings", bundle: .module))
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
                 HStack {
                     if model.hasUnsavedConfiguration {
                         Text(String(localized: "status.unsaved", defaultValue: "Unsaved speech settings", table: "ReadAloudSettings", bundle: .module))
@@ -103,6 +127,46 @@ public struct ReadAloudSettingsView: View {
         } label: {
             Text(String(localized: "section.speech", defaultValue: "Speech", table: "ReadAloudSettings", bundle: .module))
         }
+    }
+
+    private var customVoiceIDBinding: Binding<String> {
+        Binding(
+            get: { customVoiceID },
+            set: { value in
+                customVoiceID = value
+                if voiceSelection == .custom {
+                    model.configuration.voiceID = value
+                }
+            }
+        )
+    }
+
+    private func selectVoice(_ selection: ReadAloudVoiceSelection) {
+        switch selection {
+        case .preset(let id):
+            model.configuration.voiceID = id
+        case .custom:
+            if customVoiceID.isEmpty {
+                customVoiceID = model.configuration.voiceID
+            }
+            model.configuration.voiceID = customVoiceID
+        }
+    }
+
+    private func synchronizeVoiceEditor() {
+        let voiceID = model.configuration.voiceID
+        if ReadAloudVoiceCatalog.options.contains(where: { $0.id == voiceID }) {
+            voiceSelection = .preset(voiceID)
+            customVoiceID = ""
+        } else {
+            voiceSelection = .custom
+            customVoiceID = voiceID
+        }
+    }
+
+    private func loadSettings() async {
+        await model.perform(.load)
+        synchronizeVoiceEditor()
     }
 
     private var credentialSettings: some View {
@@ -142,7 +206,7 @@ public struct ReadAloudSettingsView: View {
     private var consentSettings: some View {
         GroupBox {
             VStack(alignment: .leading, spacing: 12) {
-                Text(String(localized: "consent.disclosure", defaultValue: "Read Aloud sends only the terminal text you select to MiniMax to generate speech. MiniMax bills usage to your account. cmux streams the audio without saving selected text or audio to a disk cache.", table: "ReadAloudSettings", bundle: .module))
+                Text(String(localized: "consent.recordingDisclosure", defaultValue: "Read Aloud sends only the terminal text you select to MiniMax. MiniMax bills usage to your account. Audio is temporarily stored on this Mac for playback and seeking, and is removed when the player is closed or a new reading starts. Save Audio keeps a recording only when you choose to save it. Selected text and API keys are not written to the audio cache.", table: "ReadAloudSettings", bundle: .module))
                 Toggle(String(localized: "consent.allow", defaultValue: "Allow sending selected text to MiniMax", table: "ReadAloudSettings", bundle: .module), isOn: Binding(
                     get: { model.consentGranted },
                     set: { granted in Task { await model.perform(.setConsent(granted)) } }

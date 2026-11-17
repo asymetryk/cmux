@@ -28,6 +28,7 @@ struct ReadAloudCoordinatorTests {
         // This must finish while authorization is still suspended, not after its release.
         await #expect(throws: CancellationError.self) { try await read.value }
         #expect(!coordinator.isSpeaking)
+        #expect(!coordinator.isGenerationComplete)
         #expect(await synthesizer.requestedTexts.isEmpty)
         await authorization.release(())
     }
@@ -54,6 +55,7 @@ struct ReadAloudCoordinatorTests {
         await second.release(nil)
         try await newRead.value
         #expect(!coordinator.isSpeaking)
+        #expect(coordinator.isGenerationComplete)
     }
 
     @Test

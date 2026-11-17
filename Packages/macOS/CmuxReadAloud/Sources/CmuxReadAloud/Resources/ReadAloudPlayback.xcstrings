@@ -1,6 +1,83 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "readAloud.playback.cacheUnavailable": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The audio recording could not be stored. Check available disk space and try again."
+          }
+        }
+      }
+    },
+    "readAloud.playback.cacheLimitExceeded": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The audio recording has reached its storage limit. The audio already recorded is still available."
+          }
+        }
+      }
+    },
+    "readAloud.playback.invalidRange": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The requested audio position is unavailable."
+          }
+        }
+      }
+    },
+    "readAloud.playback.recordingFinished": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This audio recording has already finished."
+          }
+        }
+      }
+    },
+    "readAloud.playback.saveInProgress": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This audio recording is already being saved."
+          }
+        }
+      }
+    },
+    "readAloud.playback.exportFailed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The audio recording could not be saved. Check the destination and available disk space, then try again."
+          }
+        }
+      }
+    },
+    "readAloud.playback.failed": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio playback or recording failed. Please try again."
+          }
+        }
+      }
+    },
     "readAloud.playback.configurationRequired": {
       "extractionState": "manual",
       "localizations": {

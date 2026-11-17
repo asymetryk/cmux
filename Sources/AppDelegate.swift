@@ -2163,6 +2163,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         let hasOwnedRuntimeCleanup = !markedForKill.isEmpty
             || !simulatorCleanupTasks.isEmpty
             || hasSudoApprovalRuntime
+            || readAloudPresentation.requiresShutdown
         guard hasOwnedRuntimeCleanup || CloudNotificationSyncHub.shared.persistenceStore.hasPendingWrites else {
             return false
         }
@@ -2181,6 +2182,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
             )
             let cleanupTask = Task { @MainActor [weak self] in
                 guard let self else { return }
+                await self.readAloudPresentation.finishForTermination()
+                guard !Task.isCancelled else { return }
                 await self.sudoApprovalCoordinator?.stop()
                 guard !Task.isCancelled else { return }
                 if !markedForKill.isEmpty {
@@ -2455,7 +2458,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, UNUserNotificationCent
         sentryStopMemoryContextRefresh()
         // Plain quit detaches local ssh clients; explicit close already killed marked sessions.
         remoteTmuxController.detachAll()
-        readAloudPresentation.stop()
+        readAloudPresentation.dismissPlayer()
         // Best-effort presence goodbye; unclean exits are covered by the
         // service's missed-heartbeat timeout.
         PresenceHeartbeatClient.shared.appWillTerminate()

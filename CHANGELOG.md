@@ -6,6 +6,13 @@ All notable changes to cmux are documented here.
 
 ### Added
 - Read selected terminal text aloud with MiniMax streaming speech, a Stop Speaking action, and native voice, speed, and API-key settings.
+- Choose from ten named narrators in Read Aloud settings, with a Custom voice ID option that preserves saved MiniMax voices.
+- Control Read Aloud in a floating player with pause/resume, a generated-audio seek timeline, 15-second skips, and pitch-preserving playback speed.
+- Save ongoing or partial Read Aloud recordings as normal-speed M4A audio; temporary playback audio is removed when the player closes or a new reading starts.
+
+### Fixed
+- Read Aloud receives speech independently of playback, with bounded in-memory buffering, so slower playback no longer stalls the incoming stream.
+- Read Aloud synthesizes up to two chunks concurrently while playing them in order, so later speech can arrive before the current chunk finishes.
 
 ## [0.64.25] - 2026-09-17
 

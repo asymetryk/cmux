@@ -1648,6 +1648,14 @@
       "de": "Established UI or technical term with the same spelling in this locale; a translated entry is still required."
     }
   },
+  "model.hd": {
+    "class": "brand",
+    "source": "HD (speech-2.8-hd)"
+  },
+  "model.turbo": {
+    "class": "brand",
+    "source": "Turbo (speech-2.8-turbo)"
+  },
   "notification.desktop.defaultTerminalTitle": {
     "source": "Terminal",
     "identityLocales": {
@@ -2793,6 +2801,10 @@
       "fr": "Reviewed native UI spelling, established developer terminology, or the named macOS Dock component; an explicit translated entry remains required.",
       "es": "Reviewed native UI spelling, established developer terminology, or the named macOS Dock component; an explicit translated entry remains required."
     }
+  },
+  "speed.value": {
+    "class": "format",
+    "source": "%@×"
   },
   "statusMenu.profiling.emailPlaceholder": {
     "class": "syntax",

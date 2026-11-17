@@ -3,7 +3,7 @@ import Foundation
 /// Streams MiniMax speech as mono 32 kHz signed 16-bit little-endian PCM.
 ///
 /// Each invocation owns its requests. Cancelling the calling task stops its
-/// network transfer; a sink failure stops that request without retrying.
+/// network transfers; a sink failure stops every active request without retrying.
 ///
 /// ```swift
 /// let client = MiniMaxSpeechClient(session: URLSession(configuration: .ephemeral))
@@ -22,14 +22,15 @@ public actor MiniMaxSpeechClient: ReadAloudSynthesizing {
         self.session = session
     }
 
-    /// Reads the full selection through sequential, bounded provider requests.
+    /// Reads the full selection through ordered batches of at most two requests.
     ///
     /// Empty, whitespace-only, or table-rule-only selections make no request.
     /// Rendered table borders become row-by-row speech before paragraph and
     /// sentence-aware chunking; no cell text is silently truncated.
-    /// The sink receives complete PCM samples and
-    /// is awaited before reading more network bytes. It must cooperate with task
-    /// cancellation; network cancellation does not depend on sink cooperation.
+    /// The sink receives complete PCM samples in order. Both requests receive
+    /// independently of playback, with at most 64 MiB of PCM queued per request.
+    /// The sink must cooperate with cancellation; network cancellation does not
+    /// depend on sink cooperation.
     /// - Parameters:
     ///   - text: Selected text; table layout is removed locally before transmission.
     ///   - configuration: A supported MiniMax model, nonempty voice ID, and speed in 0.5...2.
@@ -46,16 +47,71 @@ public actor MiniMaxSpeechClient: ReadAloudSynthesizing {
         let text = try ReadAloudTableText.prepare(text)
         guard text.contains(where: { !$0.isWhitespace }) else { return }
         try validate(configuration: configuration, apiKey: apiKey)
-        var chunks = ReadAloudTextChunks(text: text)
-        while let chunk = try chunks.next() {
-            // Whitespace remains in the lossless partition, but cannot produce speech alone.
-            guard chunk.contains(where: { !$0.isWhitespace }) else { continue }
-            let request = try request(text: chunk, configuration: configuration, apiKey: apiKey)
-            try await stream(request: request, audioSink: audioSink)
+        var chunks = ReadAloudTextChunks(text: text, maximumUTF16Count: 600)
+        while true {
+            var requests: [URLRequest] = []
+            while requests.count < 2, let chunk = try chunks.next() {
+                // Whitespace remains in the lossless partition, but cannot produce speech alone.
+                guard chunk.contains(where: { !$0.isWhitespace }) else { continue }
+                requests.append(try request(text: chunk, configuration: configuration, apiKey: apiKey))
+            }
+            guard !requests.isEmpty else { return }
+            // Do not advance the next batch until the ordered sink has accepted this one.
+            try await stream(requests: requests, audioSink: audioSink)
         }
     }
 
+    /// Keeps provider reception moving while a slower audio sink plays buffered PCM.
+    func stream(
+        request: URLRequest,
+        audioSink: @escaping @Sendable (Data) async throws -> Void
+    ) async throws {
+        try await stream(requests: [request], audioSink: audioSink)
+    }
+
     private func stream(
+        requests: [URLRequest],
+        audioSink: @escaping @Sendable (Data) async throws -> Void
+    ) async throws {
+        try Task.checkCancellation()
+        let buffers = requests.map { _ in ReadAloudAudioBuffer() }
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for (request, buffer) in zip(requests, buffers) {
+                group.addTask {
+                    do {
+                        try await self.receive(request: request) { pcm in
+                            try Task.checkCancellation()
+                            try buffer.yield(pcm)
+                        }
+                        buffer.finish()
+                    } catch {
+                        // A failed chunk must not look like clean EOF: the ordered
+                        // consumer may wake before group.next observes this error.
+                        buffer.finish(throwing: error)
+                        throw error
+                    }
+                }
+            }
+            group.addTask {
+                for buffer in buffers {
+                    for try await pcm in buffer {
+                        try Task.checkCancellation()
+                        try await audioSink(pcm)
+                    }
+                }
+                try Task.checkCancellation()
+            }
+            do {
+                while try await group.next() != nil {}
+            } catch {
+                group.cancelAll()
+                throw error
+            }
+        }
+        try Task.checkCancellation()
+    }
+
+    private func receive(
         request: URLRequest,
         audioSink: @escaping @Sendable (Data) async throws -> Void
     ) async throws {

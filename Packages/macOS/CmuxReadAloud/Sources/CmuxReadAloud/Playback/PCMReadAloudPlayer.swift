@@ -9,11 +9,15 @@ import Foundation
 public final class PCMReadAloudPlayer {
     private let engine = AVAudioEngine()
     private let node = AVAudioPlayerNode()
+    private let timePitch = AVAudioUnitTimePitch()
     private let format = AVAudioFormat(standardFormatWithSampleRate: 32_000, channels: 1)
     private var graphConnected = false
     private var generation: UUID?
     private var incompleteSample: UInt8?
-    private var scheduledBuffers: Set<UUID> = []
+    private var scheduledBuffers: [UUID: Int64] = [:]
+    private var playedSourceFrames: Int64 = 0
+    private var isPaused = false
+    private var onProgress: (@MainActor @Sendable (Int64) -> Void)?
     private var playbackWaiters: [UUID: CheckedContinuation<Void, any Error>] = [:]
     // Mutated only on MainActor; deinit reads the opaque token after actor access
     // has ceased. NotificationCenter permits removal from any thread.
@@ -30,10 +34,14 @@ public final class PCMReadAloudPlayer {
 
     func begin(
         generation: UUID,
+        rate: Double = 1,
+        onProgress: @escaping @MainActor @Sendable (Int64) -> Void = { _ in },
         onFailure: @escaping @MainActor @Sendable (ReadAloudPlaybackError) -> Void
     ) {
         stop()
         self.generation = generation
+        self.onProgress = onProgress
+        setRate(rate)
         configurationObserver = NotificationCenter.default.addObserver(
             forName: .AVAudioEngineConfigurationChange, object: engine, queue: nil
         ) { [weak self] _ in
@@ -81,7 +89,7 @@ public final class PCMReadAloudPlayer {
             }
             try startEngine(format: format)
             let bufferID = UUID()
-            scheduledBuffers.insert(bufferID)
+            scheduledBuffers[bufferID] = Int64(frameCount)
             // AVFoundation invokes this legacy callback off-actor. Only Sendable IDs
             // and the main-actor player cross the seam; no audio objects cross it.
             let completion: @Sendable (AVAudioPlayerNodeCompletionCallbackType) -> Void = { [weak self] _ in
@@ -90,7 +98,7 @@ public final class PCMReadAloudPlayer {
                 }
             }
             node.scheduleBuffer(buffer, completionCallbackType: .dataPlayedBack, completionHandler: completion)
-            if !node.isPlaying {
+            if !isPaused && !node.isPlaying {
                 node.play()
             }
         }
@@ -107,6 +115,25 @@ public final class PCMReadAloudPlayer {
         try checkActive(generation)
     }
 
+    func pause() {
+        guard generation != nil else { return }
+        isPaused = true
+        node.pause()
+    }
+
+    func resume() {
+        guard generation != nil, isPaused else { return }
+        isPaused = false
+        if !scheduledBuffers.isEmpty && !node.isPlaying {
+            node.play()
+        }
+    }
+
+    func setRate(_ rate: Double) {
+        timePitch.pitch = 0
+        timePitch.rate = Float(rate.isFinite ? min(max(rate, 0.5), 2) : 1)
+    }
+
     func stop() {
         generation = nil
         if let configurationObserver {
@@ -114,6 +141,9 @@ public final class PCMReadAloudPlayer {
             self.configurationObserver = nil
         }
         incompleteSample = nil
+        playedSourceFrames = 0
+        isPaused = false
+        onProgress = nil
         scheduledBuffers.removeAll(keepingCapacity: true)
         node.stop()
         engine.stop()
@@ -123,7 +153,9 @@ public final class PCMReadAloudPlayer {
     private func startEngine(format: AVAudioFormat) throws {
         if !graphConnected {
             engine.attach(node)
-            engine.connect(node, to: engine.mainMixerNode, format: format)
+            engine.attach(timePitch)
+            engine.connect(node, to: timePitch, format: format)
+            engine.connect(timePitch, to: engine.mainMixerNode, format: format)
             graphConnected = true
         }
         if !engine.isRunning {
@@ -161,8 +193,12 @@ public final class PCMReadAloudPlayer {
     }
 
     private func played(_ bufferID: UUID, generation: UUID) {
-        guard self.generation == generation, scheduledBuffers.remove(bufferID) != nil else { return }
+        guard self.generation == generation,
+              let frameCount = scheduledBuffers.removeValue(forKey: bufferID) else { return }
+        playedSourceFrames += frameCount
+        // Count source frames only after audible completion, independent of listening rate.
         resumeWaiters()
+        onProgress?(playedSourceFrames)
     }
 
     private func resumeWaiters(throwing error: (any Error)? = nil) {

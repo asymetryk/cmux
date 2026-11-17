@@ -1001,131 +1001,6 @@
         }
       }
     },
-    "voice.help": {
-      "extractionState": "manual",
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Use a MiniMax voice ID, such as English_expressive_narrator, or your custom voice ID."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "English_expressive_narrator などの MiniMax 音声 ID、またはカスタム音声 ID を入力してください。"
-          }
-        },
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "استخدم معرّف صوت من MiniMax، مثل English_expressive_narrator، أو معرّف صوتك المخصص."
-          }
-        },
-        "bs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Koristite MiniMax ID glasa, kao što je English_expressive_narrator, ili ID svog prilagođenog glasa."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Brug et MiniMax-stemme-id, f.eks. English_expressive_narrator, eller dit eget tilpassede stemme-id."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Verwenden Sie eine MiniMax-Stimmen-ID, etwa English_expressive_narrator, oder Ihre benutzerdefinierte Stimmen-ID."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usa un ID de voz de MiniMax, como English_expressive_narrator, o el ID de tu voz personalizada."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Utilisez un identifiant de voix MiniMax, tel que English_expressive_narrator, ou votre identifiant de voix personnalisé."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Usa un ID voce MiniMax, ad esempio English_expressive_narrator, oppure l'ID della tua voce personalizzata."
-          }
-        },
-        "km": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ប្រើ ID សំឡេងរបស់ MiniMax ដូចជា English_expressive_narrator ឬ ID សំឡេងផ្ទាល់ខ្លួនរបស់អ្នក។"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "English_expressive_narrator 등의 MiniMax 음성 ID 또는 사용자 지정 음성 ID를 사용하세요."
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bruk en MiniMax-stemme-ID, som English_expressive_narrator, eller din egendefinerte stemme-ID."
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Użyj identyfikatora głosu MiniMax, takiego jak English_expressive_narrator, lub identyfikatora własnego głosu."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Use um ID de voz da MiniMax, como English_expressive_narrator, ou o ID da sua voz personalizada."
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Используйте идентификатор голоса MiniMax, например English_expressive_narrator, или идентификатор собственного голоса."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ใช้ ID เสียงของ MiniMax เช่น English_expressive_narrator หรือ ID เสียงที่คุณกำหนดเอง"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "English_expressive_narrator gibi bir MiniMax ses kimliği veya özel ses kimliğinizi kullanın."
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Використовуйте ідентифікатор голосу MiniMax, наприклад English_expressive_narrator, або ідентифікатор власного голосу."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "使用 MiniMax 音色 ID（例如 English_expressive_narrator），或你的自定义音色 ID。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "請使用 MiniMax 聲音 ID，例如 English_expressive_narrator，或您的自訂聲音 ID。"
-          }
-        }
-      }
-    },
     "speed.label": {
       "extractionState": "manual",
       "localizations": {
@@ -3126,127 +3001,24 @@
         }
       }
     },
-    "consent.disclosure": {
+    "consent.recordingDisclosure": {
       "extractionState": "manual",
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Read Aloud sends only the terminal text you select to MiniMax to generate speech. MiniMax bills usage to your account. cmux streams the audio without saving selected text or audio to a disk cache."
+            "value": "Read Aloud sends only the terminal text you select to MiniMax. MiniMax bills usage to your account. Audio is temporarily stored on this Mac for playback and seeking, and is removed when the player is closed or a new reading starts. Save Audio keeps a recording only when you choose to save it. Selected text and API keys are not written to the audio cache."
           }
-        },
-        "ja": {
+        }
+      }
+    },
+    "speed.playbackHelp": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "読み上げでは、ターミナルで選択したテキストのみを MiniMax に送信して音声を生成します。MiniMax の利用料金はお使いのアカウントに請求されます。cmux は音声をストリーミング再生し、選択したテキストや音声をディスクキャッシュに保存しません。"
-          }
-        },
-        "ar": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ترسل ميزة القراءة بصوت عالٍ نص الطرفية الذي تحدده فقط إلى MiniMax لتوليد الكلام. تُحمِّل MiniMax تكاليف الاستخدام على حسابك. يبث cmux الصوت دون حفظ النص المحدد أو الصوت في ذاكرة تخزين مؤقت على القرص."
-          }
-        },
-        "bs": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Čitanje naglas šalje usluzi MiniMax samo tekst koji odaberete u terminalu radi generisanja govora. MiniMax naplaćuje korištenje na vašem računu. cmux prenosi audio putem streaminga bez čuvanja odabranog teksta ili audija u predmemoriji na disku."
-          }
-        },
-        "da": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Læs op sender kun den terminaltekst, du markerer, til MiniMax for at generere tale. MiniMax fakturerer forbruget på din konto. cmux streamer lyden uden at gemme markeret tekst eller lyd i en diskcache."
-          }
-        },
-        "de": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "„Vorlesen“ sendet ausschließlich den von Ihnen ausgewählten Terminaltext an MiniMax, um eine Sprachausgabe zu erzeugen. MiniMax rechnet die Nutzung über Ihr Konto ab. cmux streamt die Audiodaten, ohne den ausgewählten Text oder die Audiodaten in einem Festplattencache zu speichern."
-          }
-        },
-        "es": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leer en voz alta envía a MiniMax únicamente el texto del terminal que selecciones para generar la voz. MiniMax factura el uso a tu cuenta. cmux transmite el audio sin guardar el texto seleccionado ni el audio en una caché de disco."
-          }
-        },
-        "fr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "La lecture à voix haute envoie uniquement le texte du terminal que vous sélectionnez à MiniMax pour générer la synthèse vocale. MiniMax facture l’utilisation à votre compte. cmux diffuse l’audio en streaming sans enregistrer le texte sélectionné ni l’audio dans un cache sur disque."
-          }
-        },
-        "it": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Leggi ad alta voce invia a MiniMax solo il testo del terminale che selezioni per generare l'audio vocale. MiniMax addebita i costi di utilizzo al tuo account. cmux riproduce l'audio in streaming senza salvare il testo selezionato o l'audio in una cache su disco."
-          }
-        },
-        "km": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "មុខងារអានឮៗផ្ញើតែអត្ថបទក្នុងស្ថានីយដែលអ្នកជ្រើសរើសទៅ MiniMax ដើម្បីបង្កើតសំឡេង។ MiniMax គិតថ្លៃការប្រើប្រាស់លើគណនីរបស់អ្នក។ cmux ផ្សាយសំឡេងដោយមិនរក្សាទុកអត្ថបទដែលបានជ្រើសរើស ឬសំឡេងទៅក្នុងឃ្លាំងសម្ងាត់លើថាសទេ។"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "소리 내어 읽기는 음성을 생성하기 위해 사용자가 선택한 터미널 텍스트만 MiniMax로 전송합니다. MiniMax는 사용 요금을 사용자 계정에 청구합니다. cmux는 선택한 텍스트나 오디오를 디스크 캐시에 저장하지 않고 오디오를 스트리밍합니다."
-          }
-        },
-        "nb": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Les høyt sender kun terminalteksten du markerer til MiniMax for å generere tale. MiniMax belaster kontoen din for bruken. cmux strømmer lyden uten å lagre markert tekst eller lyd i en hurtigbuffer på disk."
-          }
-        },
-        "pl": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Funkcja Czytaj na głos wysyła do MiniMax wyłącznie zaznaczony przez Ciebie tekst z terminala, aby wygenerować mowę. MiniMax obciąża Twoje konto opłatami za użycie. cmux strumieniuje dźwięk bez zapisywania zaznaczonego tekstu ani dźwięku w pamięci podręcznej na dysku."
-          }
-        },
-        "pt-BR": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ler em voz alta envia à MiniMax apenas o texto do terminal que você seleciona para gerar fala. A MiniMax cobra o uso na sua conta. O cmux reproduz o áudio por streaming sem salvar o texto selecionado nem o áudio em um cache em disco."
-          }
-        },
-        "ru": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Функция чтения вслух отправляет в MiniMax только выделенный вами текст терминала для синтеза речи. MiniMax взимает плату за использование с вашей учётной записи. cmux передаёт аудио потоком, не сохраняя выделенный текст или аудио в дисковом кэше."
-          }
-        },
-        "th": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "การอ่านออกเสียงจะส่งเฉพาะข้อความในเทอร์มินัลที่คุณเลือกไปยัง MiniMax เพื่อสร้างเสียงพูด MiniMax จะเรียกเก็บค่าบริการตามการใช้งานจากบัญชีของคุณ cmux จะสตรีมเสียงโดยไม่บันทึกข้อความที่เลือกหรือเสียงลงในแคชบนดิสก์"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sesli Oku, konuşma oluşturmak için yalnızca seçtiğiniz terminal metnini MiniMax’e gönderir. MiniMax, kullanım ücretini hesabınıza yansıtır. cmux, seçili metni veya sesi disk önbelleğine kaydetmeden sesi akış yoluyla oynatır."
-          }
-        },
-        "uk": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Функція «Читати вголос» надсилає до MiniMax лише вибраний вами текст термінала для синтезу мовлення. MiniMax стягує плату за використання з вашого облікового запису. cmux відтворює аудіо потоково, не зберігаючи вибраний текст або аудіо в дисковому кеші."
-          }
-        },
-        "zh-Hans": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "朗读仅将你在终端中选中的文本发送至 MiniMax 以生成语音。MiniMax 会向你的账户收取使用费用。cmux 以流式方式传输音频，不会将所选文本或音频保存到磁盘缓存。"
-          }
-        },
-        "zh-Hant": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "「朗讀」僅會將您在終端機中選取的文字傳送至 MiniMax，以產生語音。MiniMax 會將使用費用計入您的帳號。cmux 以串流方式播放音訊，不會將所選文字或音訊儲存至磁碟快取。"
+            "value": "Sets the starting playback speed for new readings. Use the player to change speed while listening; saved audio stays at normal speed."
           }
         }
       }
@@ -4497,6 +4269,832 @@
           "stringUnit": {
             "state": "translated",
             "value": "無法儲存朗讀設定。無法確認您的變更是否已完成。請再試一次。"
+          }
+        }
+      }
+    },
+    "voice.pickerLabel": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voice"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音声"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stimme"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voix"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voz"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "الصوت"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "声音"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "聲音"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "음성"
+          }
+        }
+      }
+    },
+    "voice.systemSection": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System voices"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "システム音声"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Systemstimmen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voix système"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voces del sistema"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أصوات النظام"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "系统声音"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "系統聲音"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "시스템 음성"
+          }
+        }
+      }
+    },
+    "voice.custom": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Custom voice ID"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "カスタム音声 ID"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Benutzerdefinierte Stimmen-ID"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Identifiant de voix personnalisé"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ID de voz personalizada"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "معرّف صوت مخصص"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自定义声音 ID"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自訂聲音 ID"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "사용자 지정 음성 ID"
+          }
+        }
+      }
+    },
+    "voice.customHelp": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a MiniMax system, cloned, or other custom voice ID."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MiniMax のシステム音声、クローン音声、その他のカスタム音声 ID を入力してください。"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gib eine MiniMax-Systemstimmen-ID, eine geklonte oder eine andere benutzerdefinierte Stimmen-ID ein."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saisissez un identifiant de voix système MiniMax, de voix clonée ou de voix personnalisée."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Introduce un ID de voz del sistema de MiniMax, clonada u otra voz personalizada."
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أدخل معرّف صوت من أصوات نظام MiniMax أو صوت مستنسخ أو صوت مخصص آخر."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "输入 MiniMax 系统声音、克隆声音或其他自定义声音的 ID。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輸入 MiniMax 系統聲音、複製聲音或其他自訂聲音的 ID。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "MiniMax 시스템 음성, 복제 음성 또는 다른 사용자 지정 음성의 ID를 입력하세요."
+          }
+        }
+      }
+    },
+    "voice.name.expressiveNarrator": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expressive Narrator"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "表現豊かなナレーター"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ausdrucksstarker Erzähler"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Narrateur expressif"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Narrador expresivo"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "راوٍ معبّر"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "富有表现力的旁白"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "富有表現力的旁白"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "표현력 있는 내레이터"
+          }
+        }
+      }
+    },
+    "voice.name.radiantGirl": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Radiant Girl"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "輝く少女"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Strahlendes Mädchen"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jeune fille rayonnante"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chica radiante"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "فتاة مشرقة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "阳光女孩"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "陽光女孩"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "밝은 소녀"
+          }
+        }
+      }
+    },
+    "voice.name.magneticVoicedMale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Magnetic-voiced Male"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "魅力的な男性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mann mit fesselnder Stimme"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homme à la voix magnétique"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hombre de voz magnética"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رجل بصوت جذاب"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁性男声"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "磁性男聲"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "매력적인 목소리의 남성"
+          }
+        }
+      }
+    },
+    "voice.name.compellingLady": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Compelling Lady"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "魅惑的な女性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Überzeugende Dame"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Femme convaincante"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dama convincente"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "سيدة مقنعة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有感染力的女士"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "有感染力的女士"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "설득력 있는 여성"
+          }
+        }
+      }
+    },
+    "voice.name.aussieBloke": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aussie Bloke"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "オーストラリアの男性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Australischer Kerl"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Australien décontracté"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Chico australiano"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "شاب أسترالي"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "澳洲小伙"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "澳洲小伙"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "호주 남성"
+          }
+        }
+      }
+    },
+    "voice.name.captivatingFemale": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Captivating Female"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "魅了する女性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fesselnde Frau"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Femme captivante"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mujer cautivadora"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "امرأة آسرة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "迷人女声"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "迷人女聲"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "매혹적인 여성"
+          }
+        }
+      }
+    },
+    "voice.name.calmWoman": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calm Woman"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "穏やかな女性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ruhige Frau"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Femme calme"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mujer tranquila"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "امرأة هادئة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沉稳女士"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "沉穩女士"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "차분한 여성"
+          }
+        }
+      }
+    },
+    "voice.name.trustworthyMan": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trustworthy Man"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "信頼できる男性"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vertrauenswürdiger Mann"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Homme digne de confiance"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hombre de confianza"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "رجل جدير بالثقة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可靠男士"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可靠男士"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "신뢰감 있는 남성"
+          }
+        }
+      }
+    },
+    "voice.name.intellectualSenior": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intellectual Senior"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "知的な年長者"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Intellektueller Senior"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aîné intellectuel"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mayor intelectual"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مسن مثقف"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "睿智长者"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "睿智長者"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "지적인 어르신"
+          }
+        }
+      }
+    },
+    "voice.name.decisivePrincess": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Decisive Princess"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "決断力のあるプリンセス"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Entschlossene Prinzessin"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Princesse déterminée"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Princesa decidida"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "أميرة حاسمة"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "果断公主"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "果斷公主"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "결단력 있는 공주"
           }
         }
       }

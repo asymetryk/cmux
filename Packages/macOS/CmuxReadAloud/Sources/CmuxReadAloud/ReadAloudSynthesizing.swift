@@ -2,15 +2,16 @@ import Foundation
 
 /// Synthesizes selected text into mono 32 kHz signed 16-bit little-endian PCM.
 public protocol ReadAloudSynthesizing: Sendable {
-    /// Streams audio, awaiting consumption before reading the next audio chunk.
+    /// Delivers ordered audio to one sequential, backpressured consumer.
     ///
-    /// The sink is a backpressure boundary, not a completion callback. Cancellation
-    /// must stop the underlying request. No text, key, or audio is persisted.
+    /// Reception may run ahead within a bounded queue. Cancellation must stop
+    /// every underlying request. Only the consumer may retain or save the PCM;
+    /// the provider transport never persists selected text, credentials, or audio.
     /// - Parameters:
     ///   - text: The selected text, without silent truncation.
     ///   - configuration: Model, voice, and speed preferences.
     ///   - apiKey: The caller-provided MiniMax credential.
-    ///   - audioSink: Consumes a chunk before synthesis continues reading.
+    ///   - audioSink: Consumes ordered PCM; its playback-independent backpressure bounds lookahead.
     /// - Throws: Cancellation, transport, provider, or consumption errors.
     func synthesize(
         text: String,
